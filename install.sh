@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc p10k.zsh"    # list of files/folders to symlink in homedir
+files="zshrc p10k.zsh oh-my-zsh"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -40,6 +40,10 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # clone powerlevel10k theme
     if [[ ! -d $dir/oh-my-zsh/custom/themes/powerlevel10k ]]; then
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $dir/oh-my-zsh/custom/themes/powerlevel10k
+    fi
+    # clone git-open plugin
+    if [[ ! -d $dir/oh-my-zsh/plugins/git-open ]]; then
+        git clone https://github.com/paulirish/git-open.git $dir/oh-my-zsh/plugins/git-open
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
