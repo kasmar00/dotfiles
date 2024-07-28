@@ -93,7 +93,7 @@ plugins+=(shrink-path)
 #SSH: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent
 plugins+=(ssh-agent)
 zstyle :omz:plugins:ssh-agent quiet yes
-KEYS=$(ls ~/.ssh | grep -v pub | grep -v config | grep -v known | grep -v env)
+KEYS=$(ls ~/.ssh | grep -v pub | grep -v config | grep -v known | grep -v env | grep -v authorized)
 zstyle :omz:plugins:ssh-agent identities $KEYS
 
 source $ZSH/oh-my-zsh.sh
